@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.datatables.net/2.3.5/css/dataTables.dataTables.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>ajax Demo</h1>
+
+    <input type="button" value="load users" id="btn" />
+
+    <table id="users">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>username</th>
+                <th>email</th>
+                <th>address</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+
+    </table>
+    <script src='script/jquery.js'></script>
+
+
+    <script src="https://cdn.datatables.net/2.3.5/js/dataTables.min.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn').click(function() {
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/users",
+                    type: 'get',
+                    success: function(responce) {
+                        // alert("api call success")
+                        console.log(responce);
+
+                        // for (let user of responce) {
+                        //     var tr = `<tr>`
+                        //     tr += `<td>${user.name}</td>`;
+                        //     tr += `<td>${user.username}</td>`;
+                        //     tr += `<td>${user.email}</td>`;
+                        //     tr += `<td>${user.address.city}</td>`;
+                        //     tr += `</tr>`;
+                        //     $('#users tbody').append(tr);
+                        // }
+                        $('#users').DataTable({
+                            data: responce,
+                            columns: [{
+                                data: "name"
+                            }, {
+                                data: "username"
+                            }, {
+                                data: "email"
+                            }, {
+                                data: "address.city"
+                            }],
+                            // paging: false,
+                            // sort: false,
+                            // searching: false,
+                            page: 5,
+                            lengthMenu: [2, 5, 10]
+
+                        });
+                    },
+                    error: function(reason) {
+                        alert("api call failed")
+                    },
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

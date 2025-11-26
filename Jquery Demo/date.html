@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Dates formatting and Manipulation using Moment js</h1>
+
+    <h3>Custom Range Bank Statement</h3>
+    <table>
+
+        <tr>
+            <td>Start Date</td>
+            <td><input type="date" id="fromdate" /></td>
+            <td>End Date</td>
+            <td><input type="date" id="enddate" /></td>
+            <td><input type="button" value="download" id="btn" /></td>
+        </tr>
+        <hr/>
+    </table>
+    <script src="script/jquery.js"></script>
+    <script src="script/moment.js"></script>
+
+
+    <script>
+        var now = new moment();
+        document.writeln(`current time : ${now} <br/>`);
+
+        var formatedate = now.format('DD/MM/YYYY');
+        document.writeln(`now.format('DD/MM/YYYY'): ${formatedate} <br/>`);
+
+        formatedate = now.format('dddd, MMMM DD, YYYY');
+        document.writeln(`now.format('dddd, MMMM DD, YYYY'): ${formatedate} <br/>`);
+
+        $(function() {
+
+            $('#btn').click(function() {
+
+                var fromdate = $('#fromdate').val();
+                var enddate = $('#enddate').val();
+
+                var formattedfromdate = moment(fromdate);
+                var formattedenddate = moment(enddate);
+
+                // FIX: Take absolute difference so negative years don't break the condition
+                var difference = Math.abs(formattedfromdate.diff(formattedenddate, 'years'));
+
+                if (difference < 1) {
+                    alert(`You are about to download bank statements from ${formattedfromdate.format('DD/MM/YYYY')} to ${formattedenddate.format('DD/MM/YYYY')}`);
+                } else {
+                    alert(`You cannot download more than one year bank statement`);
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .red {
+            background-color: red;
+        }
+        
+        .purple {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Get Set css class</h1>
+
+    <input type="button" value="click me" id="btn1" />
+
+    <script src="script/jquery.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn1').click(function() {
+                //adding css class
+
+                // $(this).addClass('purple'),
+                //     $(this).addClass('red');
+
+                // $(this).addClass('red purple');
+
+                // $(this).removeClass('red');
+                // $(this).removeClass('purple');
+
+                // $(this).toggleClass('purple red');
+
+                // $(this).css('background-color', 'yellow');
+                // $(this).css('color', 'red');
+
+                // $(this).css({
+                //     'background-color': 'pink',
+                //     'color': 'black'
+                // });
+
+                // $(this).css({
+                //     'background-color': 'pink',
+                //     'color': 'black',
+                //     'border': 'bt-3',
+                //     'padding': '10px'
+                // });
+
+                var padding = $(this).css('padding');
+                3
+                console.log(`padding : ${padding}`);
+
+                var color = $(this).css('color');
+                console.log(`color : ${color}`);
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CDN for Jquery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+
+    <!-- using local copy of jquery -->
+
+    <script src="script/jquery.js"></script>
+    <script>
+        // ready function in jquery
+        // first way to write ready function
+
+        // $(document).ready(function() {
+        //     document.getElementById("heading").style.color = "green";
+        // });
+
+        // second way to write ready function
+        $(function() {
+            document.getElementById("heading").style.color = "blue";
+        });
+
+        $(function() {
+            document.getElementById("heading").style.backgroundColor = "orange";
+        })
+
+        // $(function() {
+        //     document.getElementById("heading2").style.color = "red";
+        // })
+
+        //we use $ or jQuery for jquery functions
+        // jQuery(function() {
+        //     document.getElementById("heading2").style.backgroundColor = "yellow";
+        // })
+
+        // $.noConflict(); //remove meaning of $ from jquery
+        // this $ is not work
+        // $(function() {
+        //     document.getElementById("heading2").style.color = "red";
+        // });
+
+        // // use jQuery instead of $
+        // jQuery(function() {
+        //     document.getElementById("heading2").style.color = "yellow";
+        // });
+
+        var pankaj = $.noConflict(); //instead of $ we can use pankaj
+
+        pankaj(function() {
+            document.getElementById("heading2").style.color = "purple";
+        })
+    </script>
+</head>
+
+<body>
+    <h1 id="heading">Jquery Introduction</h1>
+
+    <h2 id="heading2">Jquery ready function</h2>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading1" danger>selectors demo</h1>
+    <input type="button" value="click me" id="btn" />
+    <h2 class="blue">* selectors</h2>
+
+    <!-- <p class="blue">first paraghrap</p>
+    <p class="blue">second paraghrap</p>
+    <p class="blue">third paraghrap</p>
+    <p>fourth paraghrap</p>
+
+    <div>
+        <p>fifth paraghraph</p>
+    </div> -->
+
+    <!-- <ul>
+        <li>first item</li>
+        <li danger>second item</li>
+        <li>third item</li>
+    </ul>
+
+    <ol>
+        <li>first ordered item</li>
+        <li>second ordered item</li>
+        <li>third ordered item</li>
+    </ol> -->
+
+    <table border="1">
+        <tr>
+            <td>101</td>
+            <td>pankaj</td>
+            <td>pune</td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>abhi</td>
+            <td>sangli</td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>kiran</td>
+            <td>satara</td>
+        </tr>
+        <tr>
+            <td>104</td>
+            <td>pranali</td>
+            <td>sangli</td>
+        </tr>
+    </table>
+
+    <script src="script/jquery.js"></script>
+    <script>
+        $(function() {
+            $("#btn").click(function() {
+
+                // $("*").css("color", " red"); //it will change color of all elements to red
+                // $('#heading1').css("color", " red"); //it will change color of element having id heading1 to red
+                // $('#heading1').hide(); //it will hide the element having id heading1
+                // $('*').hide(); //it will hide all the elements of the page
+
+                // $('.blue').hide(); //this will hide all the elements having class blue
+                // $('p.blue').hide(); //this will hide all the p tags having class blue
+                // $('p').hide(); //it will hide all the p tags
+                // $('div p').hide();  //it will hide all the p tags inside div
+                // $('p:first').hide(); //it hides first paragraph
+                // $('p:last').hide(); //it hides last paragraph
+                // $('p:eq(2)').hide(); //it hides third paragraph (index start from 0)
+
+                // $('ul li').css('background-color', 'yellow'); //it will change background color of all li items in ul to yellow
+
+                // $('li').css('background-color', 'yellow'); //it will change background color of all li items in both ul and ol to yellow
+                // $('ol li').css('background-color', 'yellow'); //it will change background color of all li items in ol to yellow
+
+                // $('li:first').css('background-color', 'pink'); //it will change background color of first li item in ul to pink
+                // $('li:first-child').css('background-color', 'pink'); //it will change background color of first li item in both ul and ol to pink
+                // $('li:last-child').css('background-color', 'lightgreen'); //it will change background color of last li item in both ul and ol to lightgreen
+
+                // $('[danger]').css('color', 'red'); //it will change color of li having attribute danger to red.
+                // $('li[danger]').css('color', 'red'); //it will change color of li having attribute danger to red.
+
+                // $('tr').css('background-color', 'lightblue'); //it will change background color of all rows in table to lightblue
+                // $('tr:first').css('background-color', 'lightblue'); //it will change background color of first row in table to lightblue
+
+                // $('tr:odd').css('background-color', 'lightblue'); //it will change background color of odd rows in table to lightblue
+                // $('tr:even').css('background-color', 'pink'); //it will change background color of even rows in table to pink
+
+                $(this).css('background-color', 'yellow'); //it will change background color of button to yellow
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>

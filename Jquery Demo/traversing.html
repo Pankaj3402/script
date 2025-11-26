@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div * {
+            color: black;
+            border: 1px solid lightblue;
+            padding: 5px;
+            display: block;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>traversing in jquery</h1>
+
+    <div id="main">
+        main div
+        <div id="child1">
+
+            child div 1
+            <p>p1</p>
+            <a>a1</a>
+            <p>p2<span>span1</span></p>
+            <h3 class="cls">h3</h3>
+            <h2>h2</h2>
+            <a>a2</a>
+            <div>inner div</div>
+            <h>h1</h>
+        </div>
+
+        <div id="child2">
+            child div 2
+            <span>span2</span>
+            <a>a2</a>
+            <h3>h3</h3>
+            <p>p2</p>
+            <h2>h2</h2>
+            <p>p2</p>
+        </div>
+
+        <h3>h3</h3>
+
+    </div>
+
+    </div>
+
+    <script src="script/jquery.js"></script>
+
+    <script>
+        $(function() {
+            // $('p').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+            // $('p:first').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+
+            // $('p:first').parent().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('p:first').parents().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('p:first').parentsUntil('#main').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('p:first').parentsUntil('body').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+
+            // $('#main').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('#main').children().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('#main').find('span').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('#main').find('.cls').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('.cls').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('.cls').siblings().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('.cls').prev().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('.cls').prevAll().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+
+            // $('.cls').prevUntil('p:first').css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('.cls').next().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+            // $('.cls').nextAll().css({
+            //     'color': 'red',
+            //     'border': '1px solid red'
+            // });
+
+
+            $('.cls').nextUntil('div').css({
+                'color': 'red',
+                'border': '1px solid red'
+            });
+        });
+    </script>
+</body>
+
+</html>

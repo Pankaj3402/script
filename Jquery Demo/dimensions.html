@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            padding: 10px;
+            border: 2px solid red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dimensions</h1>
+    <div></div>
+
+    <script src="script/jquery.js"></script>
+
+    <script>
+        $(function() {
+            var w = $('div').width();
+            console.log(`width() : ${w}`);
+
+            var w = $('div').innerWidth();
+            console.log(`innerWidth() : ${w}`);
+
+            var w = $('div').outerWidth();
+            console.log(`outerWidth() : ${w}`);
+
+
+            var w = $('div').outerWidth(true);
+            console.log(`outerWidth(true) : ${w}`);
+
+
+
+            var h = $('div').height();
+            console.log(`height() : ${h}`);
+
+            var h = $('div').innerHeight();
+            console.log(`innerHeight() : ${h}`);
+
+            var h = $('div').outerHeight();
+            console.log(`outerHeight() : ${h}`);
+
+
+            var h = $('div').outerHeight(true);
+            console.log(`outerHeight(true) : ${h}`);
+
+
+        })
+    </script>
+</body>
+
+</html>

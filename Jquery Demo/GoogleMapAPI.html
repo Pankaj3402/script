@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Maps - Current Location & Distance Calculator</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 500px;
+            margin-bottom: 20px;
+        }
+        
+        input {
+            width: 300px;
+            padding: 8px;
+            margin: 5px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Google Maps – Current Location & Distance Calculator</h2>
+
+    <div id="map"></div>
+
+    <button onclick="getCurrentLocation()">Show My Current Location</button>
+
+    <br>
+
+    <input id="start" type="text" placeholder="Enter Start Place" />
+    <input id="end" type="text" placeholder="Enter Destination Place" />
+    <button onclick="calculateDistance()">Calculate Distance</button>
+
+    <h3 id="output"></h3>
+
+    <script>
+        let map;
+        let currentMarker;
+
+        // Main function called when Google Maps API loads
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {
+                    lat: 20.5937,
+                    lng: 78.9629
+                },
+                zoom: 5
+            });
+
+            // Autocomplete setup
+            new google.maps.places.Autocomplete(document.getElementById("start"));
+            new google.maps.places.Autocomplete(document.getElementById("end"));
+        }
+
+        // Show current location on map
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+
+                    const myLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    if (currentMarker) currentMarker.setMap(null);
+
+                    currentMarker = new google.maps.Marker({
+                        position: myLocation,
+                        map: map,
+                        title: "You Are Here"
+                    });
+
+                    map.setCenter(myLocation);
+                    map.setZoom(14);
+
+                }, () => alert("Location permission denied."));
+            } else {
+                alert("Your browser does not support Geolocation.");
+            }
+        }
+
+        // Distance Matrix Calculation
+        function calculateDistance() {
+            const origin = document.getElementById("start").value;
+            const destination = document.getElementById("end").value;
+
+            if (!origin || !destination) {
+                alert("Please enter both start and destination places.");
+                return;
+            }
+
+            const service = new google.maps.DistanceMatrixService();
+
+            service.getDistanceMatrix({
+                    origins: [origin],
+                    destinations: [destination],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    unitSystem: google.maps.UnitSystem.METRIC
+                },
+                (response, status) => {
+
+                    console.log("Distance Matrix Status:", status);
+                    console.log("API Response:", response);
+
+                    if (status !== "OK") {
+                        alert("Distance Matrix Error: " + status);
+                        return;
+                    }
+
+                    let result = response.rows[0].elements[0];
+
+                    if (result.status !== "OK") {
+                        alert("Location Error: " + result.status);
+                        return;
+                    }
+
+                    document.getElementById("output").innerHTML =
+                        `<b>Distance:</b> ${result.distance.text}<br>
+                         <b>Duration:</b> ${result.duration.text}`;
+
+                    // Place markers
+                    const geocoder = new google.maps.Geocoder();
+
+                    geocoder.geocode({
+                        address: origin
+                    }, res1 => {
+                        geocoder.geocode({
+                            address: destination
+                        }, res2 => {
+
+                            const bounds = new google.maps.LatLngBounds();
+                            bounds.extend(res1[0].geometry.location);
+                            bounds.extend(res2[0].geometry.location);
+
+                            map.fitBounds(bounds);
+
+                            new google.maps.Marker({
+                                map: map,
+                                position: res1[0].geometry.location,
+                                label: "A"
+                            });
+
+                            new google.maps.Marker({
+                                map: map,
+                                position: res2[0].geometry.location,
+                                label: "B"
+                            });
+                        });
+                    });
+                }
+            );
+        }
+    </script>
+
+    <!-- Load Google Maps API (only once) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCdmk1_4B1BHykzedbM7uDeSidMLdtX7o&libraries=places&callback=initMap" async defer></script>
+
+</body>
+
+</html>

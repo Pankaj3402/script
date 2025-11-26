@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>events Demo</h1>
+
+    <input type="button" value="mouseentered" id="btn" />
+
+    <script src="script\jquery.js"></script>
+
+
+    <script>
+        $(function() {
+
+            // $('#btn').click(function() {
+            //     alert('button clicked');
+            // });
+            // $('#btn').mouseenter(function() {
+            //     $(this).val('mouseentered');
+            // });
+
+            // $('#btn').mouseleave(function() {
+            //     $(this).val('mouseleave');
+            // });
+
+            // $('#btn').hover(function() {
+            //     $(this).val('mouseover');
+            // }, function() {
+            //     $(this).val('mouseleaved');
+            // });
+
+            // $('#btn').mousedown(function() {
+            //     $(this).val('mousedown');
+            // });
+
+            // $('#btn').mouseup(function() {
+            //     $(this).val('mouseup');
+            // });
+
+            // $('#btn').on('click', function() {
+            //     $(this).val('click');
+            // });
+
+
+            $('#btn').on({
+                mouseenter: function() {
+                    $(this).val('mouseover')
+                },
+                mousedown: function() {
+                    $(this).val('mousedown')
+                },
+                click: function() {
+                    $(this).val('click');
+                }
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Events</h1>
+    <section>
+        <h2>Mouse button test</h2>
+        <button id="btn">Click or press mouse button</button>
+    </section>
+
+    <section style="margin-top:1rem;">
+        <h2>Event bubbling (default)</h2>
+        <div id="div1" style="border:1px solid #444;padding:10px;display:inline-block;">
+            div 1
+            <span id="span1" style="border:1px dashed #666;padding:8px;margin-left:8px;display:inline-block;">
+                span 1
+                <button id="btn1" style="margin-left:6px;">button 1</button>
+            </span>
+        </div>
+    </section>
+
+    <section style="margin-top:1rem;">
+        <h2>Event capturing (useCapture = true)</h2>
+        <div id="div2" style="border:1px solid #444;padding:10px;display:inline-block;">
+            div 2
+            <span id="span2" style="border:1px dashed #666;padding:8px;margin-left:8px;display:inline-block;">
+                span 2
+                <button id="btn2" style="margin-left:6px;">button 2</button>
+            </span>
+        </div>
+    </section>
+
+    <!-- Include the events.js that lives in the same folder as this HTML -->
+    <script src="events.js"></script>
+</body>
+
+</html>

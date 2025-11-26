@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Get Set Attribute</h1>
+
+    <a id="a2" href="http://www.google.com" target="_blank">visit google</a>
+
+    <input type="button" id="btn1" value="Get Attribute" />
+    <hr/>
+
+    <a id="a1">visit facebook</a>
+    <input type="button" id="btn2" value="Set Attribute" />
+
+    <script src="script/jquery.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn1').click(function() {
+                var href = $('#a2').attr('href');
+                console.log(`href : ${href}`);
+
+
+                var target = $('#a2').attr('target');
+                console.log(`target value ${target}`);
+            });
+
+            $('#btn2').click(function() {
+                // $('#a1').attr('href', 'http://www.facebook.com');
+                // $('#a1').attr('target', '_blank');
+
+                $('#a1').attr({
+                    'href': 'http://www.facebook.com',
+                    'target': '_blank'
+                });
+            });
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style/jquery-ui.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>jquery demo</h1>
+    <div id="div1" style="width: 100px;height: 100px; background-color: yellow; border: 1px solid black;">
+        draggable div
+    </div>
+
+    <div id="div2" style="width: 300px;height: 400px; border: 1px solid black;">
+
+    </div>
+    <script src="script/jquery.js"></script>
+    <script src="script/jquery-ui.js"></script>
+
+    <script>
+        $(function() {
+            $(`#div1`).draggable();
+
+            $(`#div2`).droppable({
+                drop: function() {
+                    alert(`content dropped to target element`);
+                },
+            });
+        });
+    </script>
+
+</body>
+
+</html>

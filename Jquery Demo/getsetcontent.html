@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>get set content</h1>
+    <div>
+        <input type="button" value="Get content" id="btn1" /> <br/> <br/> Name : <input type="text" id="txt1" />
+        <p id="p1">paraghraph text content</p>
+
+        <div id="div1">
+            div content <br/>
+            <span>span content</span> <br/>
+            <a href="http://www.google.com" target="_blank">visit google</a>
+        </div>
+        <hr/>
+
+        <input type="button" value="set content" id="btn2" /> <br/> Name : <input type="text" id="txt2" />
+    </div>
+    <script src="script/jquery.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn1').click(function() {
+                var v = $('#txt1').val();
+                console.log(`textbox value : ${v}`);
+
+                v = $('#p1').text();
+                console.log(`paragraph content : ${v}`);
+
+                v = $('#div1').html();
+                console.log(`div content : ${v}`);
+            });
+
+            $('#btn2').on('click', function() {
+
+                $('#txt2').val('pankaj more');
+                $('#p2').text('added paraghraph text content');
+                $('#div2').html(`div content <br/> <span>span content</span> <a href="http://www.google.com">visit google</a>`)
+
+            });
+        });
+    </script>
+</body>
+
+</html>

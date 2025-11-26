@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>effects in jquery</h1>
+
+
+    <input type="button" value="click me" id="btn" /><br/><br/>
+
+    <div id="div1" style="background-color: red; height: 200px; width: 250px; border: 1px dotted black;display: none;">
+
+
+    </div>
+    <script src="script\jquery.js"></script>
+
+    <script>
+        $(function() {
+            $('#btn').click(function() {
+                // $('#div1').hide(); //to hide the div
+                // $('#div1').show(); //to show the div
+                // $('#div1').toggle(); //to toggle the div
+
+                // //speed parameters = fast, slow, milliseconds   
+                // $('#div1').hide(5000, function() {
+                //     alert('effect completed');
+                // }); //to hide the div
+
+                // $('#div1').fadeIn(); //to fade in the div
+                // $('#div1').fadeIn(5000); //to fade in the div
+
+
+                // $('#div1').fadeToggle(); //to fade toggle the div
+                // $('#div1').fadeToggle(2000); //to fade toggle the div
+
+                // $('#div1').fadeTo(5000, 0.2); //to fade to the div
+
+                // $('#div1').slideUp(3000); //to slide up the div
+                // $('#div1').slideDown(3000); //to slide down the div
+
+                // $('#div1').slideToggle(10000, function() {
+                //     alert('effect completed');
+                // }); //to slide toggle the div
+
+                // $('#div1').animate({
+                //     height: "100px"
+                // }, 2000);
+
+                // $('#div1').animate({
+                //     height: "100px"
+                // }, 2000);
+                // $('#div1').animate({
+                //     width: "100px"
+                // }, 2000);
+                // $('#div1').animate({
+                //     height: "50px"
+                // }, 2000);
+                // $('#div1').animate({ 
+                //     height: "50px"
+                // }, 2000);
+
+
+                // setTimeout(stopeffect, 2000);
+
+                // function stopeffect() {
+                //     $('#div1').stop();
+                // }
+
+
+                $('#div1').slideUp(3000)
+                    .slideDown(3000)
+                    .css('background-color', 'pink');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
